@@ -90,18 +90,70 @@ def stop_loading_animation(thread):
     sys.stdout.write('\r' + ' ' * len(frames[-1]) + '\r')
     sys.stdout.flush()
 
-# Load the AutoGen configuration from a JSON file
+# Load the AutoGen configuration from a JSON file  - Can we adjust the OAI to look like the following:
+# config_list_mistral = [
+# {
+# 'base_url': "http://0.0.0.0:8000",
+# 'api_key': "NULL",
+# 'model': "mistral"
+# }
+# ]
+# 
+# config_list_codellama = [
+# {
+# 'base_url': "http://0.0.0.0:8000",
+# 'api_key': "NULL",
+# 'model': 'codellama"
+# }
+# ]
+
+
 try:
     config_list_gpt4 = config_list_from_json("OAI_CONFIG_LIST.json")
-except Exception as e:
+except Exception as e:  # Leave exception handling 
     logging.error(f"Failed to load configuration: {e}")
     print(f"Failed to load configuration: {e}")
     sys.exit(1)
 
 llm_config = {"config_list": config_list_gpt4, "cache_seed": 42}
 
+#################################################################
+# Update to something along this.  add '"cache_seed": 42'? Review this setting and adjust as needed
+#
+# llm_config_mistral={
+# "config_list": config_list_mistral,
+# }
+# 
+# llm_config_codellama={
+# "config_list": config_list_codellama,
+# }
+# Could model and user be more dynamic?
+
+
+
 # Create user and assistant agents for the AutoGen framework
+# Update to include llm_config = llm_config_modelname
+#
+#
 user_proxy = UserProxyAgent(name="User_proxy", system_message="A human admin.", code_execution_config={"last_n_messages": 3, "work_dir": "./tmp"}, human_input_mode="NEVER")
+
+# Add in LLM Selector
+
+
+# Update User Proxy Agent to the following, additionally possibly use nueral-chat model 
+#
+# user_proxy = autogen.UserProxyAgent(
+# name="user_proxy",
+# human_input_mode="NEVER",
+# max_consecutive_auto_reply=10,
+# is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
+# code_execution_config={"work_dir": "web"},
+# llm_config=llm_config_mistral,
+# system_message="""Reply TERMINATE if the task has been solved at full satisfaction.
+# Otherwise, reply CONTINUE, or the reason why the task is not solved yet."""
+# )
+#
+# Update the LLM here, possibly can auto select the LLM maybe this will be a variable?
 coder = AssistantAgent(name="Coder", llm_config=llm_config)
 critic = AssistantAgent(name="Critic", system_message="Critic agent's system message here...", llm_config=llm_config)
 
