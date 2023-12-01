@@ -90,7 +90,8 @@ def stop_loading_animation(thread):
     sys.stdout.write('\r' + ' ' * len(frames[-1]) + '\r')
     sys.stdout.flush()
 
-# Load the AutoGen configuration from a JSON file  - Can we adjust the OAI to look like the following:
+# Load the AutoGen configuration from a JSON file
+# Can we adjust the OAI to look like the following:
 # config_list_mistral = [
 # {
 # 'base_url': "http://0.0.0.0:8000",
@@ -137,7 +138,7 @@ llm_config = {"config_list": config_list_gpt4, "cache_seed": 42}
 #
 user_proxy = UserProxyAgent(name="User_proxy", system_message="A human admin.", code_execution_config={"last_n_messages": 3, "work_dir": "./tmp"}, human_input_mode="NEVER")
 
-# Add in LLM Selector
+# Add in LLM Selector - promptengineer48 example of this https://github.com/PromptEngineer48/LLM_Selector
 
 
 # Update User Proxy Agent to the following, additionally possibly use nueral-chat model 
