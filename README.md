@@ -46,7 +46,7 @@ To configure and run the script with `OAI_CONFIG_LIST.json`, ensuring all depend
 
 ### Configuring `OAI_CONFIG_LIST.json`
 
-**JSON Configuration:** 
+**JSON Configuration:** Updating for local LLMs
 Configure the AutoGen library using the `OAI_CONFIG_LIST.json` file. An example configuration is as follows:
 
 ```json
@@ -59,11 +59,14 @@ Configure the AutoGen library using the `OAI_CONFIG_LIST.json` file. An example 
 ```
 - **`model`**: Set this to the specific model you intend to use, like `"gpt-4-0314"` for a GPT-4 model.
 - **`api_key`**: Replace `"sk-your-key"` with your actual OpenAI API key.
+Add base_url and API key of NULL.
+
+
 
 **Location of JSON File:**
 Place `OAI_CONFIG_LIST.json` in the root directory of your project, where your main Python script is located. Alternatively, adjust the script's path to point to the file's location.
 
-## Running the Script in Docker
+## Running the Script in Docker (Right now getting it running on bare metal in a virtual env, will re-eval docker ones it is running.
 
 ### Docker Setup:
 1. Ensure Docker is installed on your system. If not, download and install it from the [official Docker website](https://www.docker.com/products/docker-desktop).
