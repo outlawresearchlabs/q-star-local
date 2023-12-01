@@ -1,3 +1,20 @@
+## Load the AutoGen configuration from a JSON file  - Can we adjust the OAI to look like the following:
+## config_list_mistral = [
+## {
+## 'base_url': "http://0.0.0.0:8000",
+## 'api_key': "NULL",
+## 'model': "mistral"
+## }
+## ]
+## 
+## config_list_codellama = [
+## {
+## 'base_url': "http://0.0.0.0:8000",
+## 'api_key': "NULL",
+## 'model': 'codellama"
+## }
+## ]
+
 [
     {
         "model": "gpt-4-0314",
