@@ -91,6 +91,8 @@ def stop_loading_animation(thread):
     sys.stdout.flush()
 
 # Load the AutoGen configuration from a JSON file
+
+# Reference to ollama with autogen - https://gist.github.com/mberman84/ea207e7d9e5f8c5f6a3252883ef16df3
 # Can we adjust the OAI to look like the following:
 # config_list_mistral = [
 # {
@@ -99,7 +101,6 @@ def stop_loading_animation(thread):
 # 'model': "mistral"
 # }
 # ]
-# 
 # config_list_codellama = [
 # {
 # 'base_url': "http://0.0.0.0:8000",
