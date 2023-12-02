@@ -105,11 +105,7 @@ def stop_loading_animation(thread):
     sys.stdout.write('\r' + ' ' * len(frames[-1]) + '\r')
     sys.stdout.flush()
 
-# Load the AutoGen configuration from a JSON file
-
-
 # Add in LLM Selector - promptengineer48 example of this https://github.com/PromptEngineer48/LLM_Selector
-
 
 #def select_best_model(user_input, models_dict):
  #   llm = Ollama(model="neural-chat") #Selector Model
@@ -160,30 +156,25 @@ def stop_loading_animation(thread):
 
 
 
-
+# Load the AutoGen configuration from a JSON file - remove this
 try:
-    config_list_gpt4 = config_list_from_json("OAI_CONFIG_LIST.json")  # move from OAI config list json to here in the code for now
+    config_list_gpt4 = config_list_from_json("OAI_CONFIG_LIST.json")
+
+
+#
+# Look at using litellm to connect to ollama's api as to not require multiple 
+# Models to be running at a time? 
+#
+# response = completion(
+#    model="ollama/llama2", 
+#    messages=[{ "content": "respond in 20 words. who are you?","role": "user"}], 
+#    api_base="http://localhost:11434"
+# )
+# print(response)
+#
 
 
 
-
-    # 
-    # Reference to ollama with autogen - https://gist.github.com/mberman84/ea207e7d9e5f8c5f6a3252883ef16df3
-    # Can we adjust the OAI to look like the following:
-    # config_list_mistral = [
-    # {
-    # 'base_url': "http://0.0.0.0:8000",
-    # 'api_key': "NULL",
-    # 'model': "mistral"
-    # }
-    # ]
-    # config_list_codellama = [
-    # {
-    # 'base_url': "http://0.0.0.0:8000",
-    # 'api_key': "NULL",
-    # 'model': 'codellama"
-    # }
-    # ]
 except Exception as e:  # Leave exception handling 
     logging.error(f"Failed to load configuration: {e}")
     print(f"Failed to load configuration: {e}")
