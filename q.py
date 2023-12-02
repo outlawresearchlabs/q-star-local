@@ -103,26 +103,25 @@ def stop_loading_animation(thread):
 
 # Load the AutoGen configuration from a JSON file
 
-# Reference to ollama with autogen - https://gist.github.com/mberman84/ea207e7d9e5f8c5f6a3252883ef16df3
-# Can we adjust the OAI to look like the following:
-# config_list_mistral = [
-# {
-# 'base_url': "http://0.0.0.0:8000",
-# 'api_key': "NULL",
-# 'model': "mistral"
-# }
-# ]
-# config_list_codellama = [
-# {
-# 'base_url': "http://0.0.0.0:8000",
-# 'api_key': "NULL",
-# 'model': 'codellama"
-# }
-# ]
-
-
 try:
     config_list_gpt4 = config_list_from_json("OAI_CONFIG_LIST.json")
+    # 
+    # Reference to ollama with autogen - https://gist.github.com/mberman84/ea207e7d9e5f8c5f6a3252883ef16df3
+    # Can we adjust the OAI to look like the following:
+    # config_list_mistral = [
+    # {
+    # 'base_url': "http://0.0.0.0:8000",
+    # 'api_key': "NULL",
+    # 'model': "mistral"
+    # }
+    # ]
+    # config_list_codellama = [
+    # {
+    # 'base_url': "http://0.0.0.0:8000",
+    # 'api_key': "NULL",
+    # 'model': 'codellama"
+    # }
+    # ]
 except Exception as e:  # Leave exception handling 
     logging.error(f"Failed to load configuration: {e}")
     print(f"Failed to load configuration: {e}")
