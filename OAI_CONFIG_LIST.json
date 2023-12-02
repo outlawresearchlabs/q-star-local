@@ -1,16 +1,1 @@
-config_list_mistral = 
-[
-    {
-        'base_url': "http://0.0.0.0:8000",
-        'api_key': "NULL",
-        'model': "mistral"
-    }
-]
 
-config_list_codellama = [
-    {
-        'base_url': "http://0.0.0.0:8000",
-        'api_key': "NULL",
-        'model': 'codellama"
-    }
-]
