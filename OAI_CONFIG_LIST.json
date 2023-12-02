@@ -1,6 +1,16 @@
+config_list_mistral = 
 [
     {
-        "model": "gpt-4-0314",
-        "api_key": "sk-your-key"
+        'base_url': "http://0.0.0.0:8000",
+        'api_key': "NULL",
+        'model': "mistral"
+    }
+]
+
+config_list_codellama = [
+    {
+        'base_url': "http://0.0.0.0:8000",
+        'api_key': "NULL",
+        'model': 'codellama"
     }
 ]
